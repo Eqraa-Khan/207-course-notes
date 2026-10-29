@@ -38,3 +38,4 @@ public class OddSum {
         return total;
     }
 }
+
