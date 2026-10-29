@@ -46,8 +46,9 @@ public class Point {
    */
   @Override
   public String toString() {
-    // TODO
-    return "";
+    String xstring = Integer.toString(getX());
+    String ystring = Integer.toString(getY());
+    return "(" + xstring + ", " + ystring + ")";
   }
 
   /**
@@ -60,7 +61,18 @@ public class Point {
   public boolean equals(Object o) {
     // TODO: check that o is a Point (use `instanceof`), cast it, and compare
     //       the x and y fields.
-    return false;
+      // 1. If it's the exact same object in memory, they are definitely equal
+      if (this == o) return true;
+
+      // 2. Check if o is actually a Point
+      if (o instanceof Point) {
+          Point p = (Point) o; // Cast the object to a Point
+          // 3. Compare their x and y coordinates
+          return this.x == p.x && this.y == p.y;
+      }
+
+      // 4. If it's not even a Point, they aren't equal
+      return false;
   }
 
   /**
@@ -72,6 +84,7 @@ public class Point {
   @Override
   public int hashCode() {
     // TODO: Objects.hash(x, y) is an easy way to combine the fields.
-    return 0;
+      return Objects.hash(x, y);
+
   }
 }
