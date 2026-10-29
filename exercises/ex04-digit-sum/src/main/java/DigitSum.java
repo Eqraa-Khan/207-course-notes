@@ -1,7 +1,7 @@
 /**
  * Exercise (Chapter 1: Introduction to Java) — while loops and integer
  * arithmetic.
- *
+ * <p>
  * Complete {@link #digitSum(int)} below using a while loop.
  *
  * Relevant reading: 1.8.3. while Loops (and 1.2. Variables and Types).
@@ -21,7 +21,11 @@ public class DigitSum {
      * @return the sum of its decimal digits
      */
     public static int digitSum(int n) {
-        // TODO: complete
-        return 0;
+        int total = 0;
+        while (n != 0) {
+            total += Math.abs(n % 10);   // last digit
+            n = n / 10;                  // drop the last digit
+        }
+        return total;
     }
 }
